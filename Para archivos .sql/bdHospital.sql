@@ -52,3 +52,4 @@ create table Citas
 	[Fecha] smalldatetime default getdate(),
 	[Especialidad] varchar
 );
+//cambio
