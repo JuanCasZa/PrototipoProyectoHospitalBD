@@ -10,7 +10,7 @@ create table Departamentos
 	[Id] int primary key identity(1,1),
 	[Nombre] nvarchar(30) not null,
 	[NumeroPiso] int not null,
-	[JefeDepartamento] int references [JefeDepartamentos]([Id]) not null,
+	[JefeDepartamento] int references [JefeDepartamentos]([Id]) not null
 );
 
 create table Medicos
@@ -39,16 +39,10 @@ create table HistoriasClinicas
 	[Paciente] int references [Pacientes]([Id]) not null
 );
 
-create table Atienden
-(
-	[Id] int primary key identity(1,1),
-	[Medico] int references [Medicos]([Id]) not null,
-	[Paciente] int references [Pacientes]([Id]) not null
-);
-
 create table Citas
 (
 	[Id] int primary key identity(1,1),
 	[Fecha] smalldatetime default getdate(),
-	[Especialidad] varchar
+	[Medico] int references [Medicos]([Id]),
+	[Paciente] int references [Pacientes]([Id])
 );
