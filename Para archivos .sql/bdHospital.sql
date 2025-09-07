@@ -1,11 +1,11 @@
-create table JefeDepartamentos
+create table [JefeDepartamentos]
 (
 	[Id] int primary key identity(1,1),
 	[Nombre] nvarchar(30) not null,
 	[Apellido] nvarchar(40) not null
 );
 
-create table Departamentos
+create table [Departamentos]
 (
 	[Id] int primary key identity(1,1),
 	[Nombre] nvarchar(30) not null,
@@ -13,7 +13,7 @@ create table Departamentos
 	[JefeDepartamento] int references [JefeDepartamentos]([Id]) not null
 );
 
-create table Medicos
+create table [Medicos]
 (
 	[Id] int primary key identity(1,1),
 	[Nombre] nvarchar(30) not null,
@@ -22,7 +22,7 @@ create table Medicos
 	[Departamento] int references [Departamentos]([Id]) not null
 );
 
-create table Pacientes
+create table [Pacientes]
 (
 	[Id] int primary key identity(1,1),
 	[Nombre] nvarchar(30) not null,
@@ -30,7 +30,7 @@ create table Pacientes
 	[Direccion] nvarchar(200) not null
 );
 
-create table HistoriasClinicas
+create table [HistoriasClinicas]
 (
 	[Id] int primary key identity(1,1),
 	[Fecha] smalldatetime default getdate() not null,
@@ -39,7 +39,7 @@ create table HistoriasClinicas
 	[Paciente] int references [Pacientes]([Id]) not null
 );
 
-create table Citas
+create table [Citas]
 (
 	[Id] int primary key identity(1,1),
 	[Fecha] smalldatetime default getdate(),
